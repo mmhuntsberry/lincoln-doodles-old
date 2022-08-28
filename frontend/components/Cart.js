@@ -26,23 +26,23 @@ export default function Cart() {
   const { isOpen, toggleOpen } = useCart();
 
   useEffect(() => {
-    import("@nielsen-media/gds-icons/lib/src/index");
+    import("@nielsen-media/gds-action-icon/lib/src");
   }, []);
 
   if (!me) return null;
   return (
     <CartStyles open={isOpen}>
       <HeaderStyles>
-        <Supreme>{me.name.split(" ")[0]}'s Cart</Supreme>
+        <Supreme>{me.name.split(" ")[0]}'s Kart</Supreme>
         <ButtonStyles onClick={toggleOpen}>
-          <gds-icon
+          <gds-action-icon
             icon="close"
             background="green"
             background-level="700"
             foreground="gray"
-            foreground-level="100"
+            foreground-level="900"
             size="40"
-          ></gds-icon>
+          ></gds-action-icon>
         </ButtonStyles>
       </HeaderStyles>
       <ul>

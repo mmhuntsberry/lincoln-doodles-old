@@ -37,16 +37,12 @@ const ProductsImageStyle = styled.img`
   /* height: 200px; */
 `;
 
-const ProductsPriceStyle = styled.span`
+export const ProductsPriceStyle = styled.span`
   color: var(--white);
   font-weight: var(--weight-200);
   padding: var(--spacing-200);
   line-height: var(--lh-0);
   font-size: var(--fs-500);
-  /* display: inline-block;
-  position: absolute;
-  top: -3px;
-  right: -3px; */
 `;
 
 const OverlayStyles = styled.div`

@@ -22,16 +22,22 @@ const Nav = () => {
       {user && (
         <>
           <gds-action-icon
-            // onClick={toggleOpen}
-            size="regular"
-            outlined="false"
             icon="user-circle"
+            background-level="700"
+            foreground="gray"
+            foreground-level="900"
+            size="40"
+            outlined="false"
           ></gds-action-icon>
           <gds-action-icon
-            onClick={toggleOpen}
-            size="regular"
-            outlined="false"
             icon="shopping-purchase"
+            onClick={toggleOpen}
+            background="green"
+            background-level="700"
+            foreground="gray"
+            foreground-level="900"
+            size="40"
+            outlined="false"
           ></gds-action-icon>
         </>
       )}

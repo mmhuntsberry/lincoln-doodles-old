@@ -6,6 +6,7 @@ const ButtonStyles = styled.button`
   border: 0;
   background: none;
   cursor: pointer;
+  align-self: start;
 
   &:disabled {
     opacity: 0.5;

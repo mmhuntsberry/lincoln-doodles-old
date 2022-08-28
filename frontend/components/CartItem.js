@@ -4,7 +4,7 @@ import DeleteCartItem from "./DeleteCartItem";
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
-  border-bottom: 1px solid var(--green-500);
+  border-bottom: 1px solid var(--black);
   display: grid;
   grid-template-columns: auto 1fr min-content;
 
@@ -28,6 +28,7 @@ const CartItemStyles = styled.li`
 `;
 
 export default function CartItem({ cartItem: item }) {
+  console.log(item);
   if (!item.product) return null;
   return (
     <CartItemStyles>
@@ -39,21 +40,24 @@ export default function CartItem({ cartItem: item }) {
       <div>
         <h3>{item.product?.name}</h3>
         <p>
-          {formatMoney(item.product?.price * item.quantity)} -
-          <em> &times; {formatMoney(item.product?.price) + " each"}</em>
+          <em>
+            {item.quantity} prints
+            {" @" + formatMoney(item.product?.price) + " each"}
+            {" = "}
+            {formatMoney(item.product?.price * item.quantity)}
+          </em>
         </p>
       </div>
 
       <DeleteCartItem id={item.id}>
-        <gds-icon
+        <gds-action-icon
           icon="delete"
           outlined="true"
-          background="green"
           background-level="700"
           foreground="gray"
-          foreground-level="100"
-          size="32"
-        ></gds-icon>
+          foreground-level="900"
+          size="40"
+        ></gds-action-icon>
       </DeleteCartItem>
     </CartItemStyles>
   );

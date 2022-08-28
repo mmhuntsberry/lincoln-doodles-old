@@ -7,6 +7,7 @@ import styled from "styled-components";
 import AddToCart from "./AddToCart";
 import Link from "next/link";
 import DeleteProduct from "./DeleteProduct";
+import formatMoney from "../lib/formatMoney";
 
 const ProductStyles = styled.div`
   display: grid;
@@ -14,7 +15,7 @@ const ProductStyles = styled.div`
   grid-auto-flow: column;
   max-width: var(--max-width);
   align-items: top;
-  grid-gap: var(--spacing-400);
+  grid-gap: var(--spacing-800);
 
   img {
     width: 100%;
@@ -57,6 +58,19 @@ const LinkStyles = styled.a`
   } */
 `;
 
+export const ProductsPriceStyle = styled.span`
+  color: var(--black);
+  font-weight: var(--weight-200);
+  line-height: var(--lh-0);
+  font-size: var(--fs-500);
+`;
+
+const DetailsHeaderStyles = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
     Product(where: { id: $id }) {
@@ -94,7 +108,10 @@ export default function SingleProduct() {
       </Head>
       <img src={photo.image.publicUrlTransformed} alt={photo.altText} />
       <div className="details">
-        <h2>{name}</h2>
+        <DetailsHeaderStyles>
+          <h2>{name}</h2>
+          <ProductsPriceStyle>{formatMoney(price)}</ProductsPriceStyle>
+        </DetailsHeaderStyles>
         <p>{description}</p>
         <AddToCart id={id} />
         <ButtonGroupStyles>
