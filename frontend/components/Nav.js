@@ -15,7 +15,10 @@ const Nav = () => {
 
   return (
     <NavStyles>
-      <Link href="/products">Products</Link>
+      <Link href="/home">Home</Link>
+      <Link href="/about">About</Link>
+      <Link href="/doodles">Doodles</Link>
+      {/* <Link href="/products">Products</Link> */}
       {/* {process.env.NEXT_PUBLIC_STRIPE_KEY} */}
       {user && (
         <>
