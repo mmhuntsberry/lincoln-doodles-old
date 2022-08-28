@@ -13,30 +13,26 @@ const Nav = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    import("@nielsen-media/gds-action-icon/lib/src");
+  }, []);
+
   return (
     <NavStyles>
-      <Link href="/home">Home</Link>
-      <Link href="/about">About</Link>
-      <Link href="/doodles">Doodles</Link>
-      {/* <Link href="/products">Products</Link> */}
-      {/* {process.env.NEXT_PUBLIC_STRIPE_KEY} */}
       {user && (
         <>
-          <Link href="/sell">Sell</Link>
-          <Link href="/orders">Orders</Link>
-          <Link href="/account">Account</Link>
-          <SignOut />
-          <button type="button" onClick={toggleOpen}>
-            Cart
-            <CartCount
-              count={user.cart.reduce((acc, curr) => acc + curr.quantity, 0)}
-            />
-          </button>
-        </>
-      )}
-      {!user && (
-        <>
-          <Link href="/signin">Sign In</Link>
+          <gds-action-icon
+            // onClick={toggleOpen}
+            size="regular"
+            outlined="false"
+            icon="user-circle"
+          ></gds-action-icon>
+          <gds-action-icon
+            onClick={toggleOpen}
+            size="regular"
+            outlined="false"
+            icon="shopping-purchase"
+          ></gds-action-icon>
         </>
       )}
     </NavStyles>

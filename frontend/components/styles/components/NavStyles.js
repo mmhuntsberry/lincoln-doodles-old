@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const NavStyles = styled.ul`
-  //   margin: 0;
-  //   padding: 0;
-  //   display: flex;
-  //   justify-self: end;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-self: end;
+  margin-right: var(--fs-200);
+  gap: var(--spacing-100);
+
   //   font-size: var(--fs-300);
 
   //   a,

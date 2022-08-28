@@ -5,15 +5,16 @@ import { CURRENT_USER_QUERY } from "../components/User";
 import { useCart } from "../lib/CartState";
 
 const AddToCartStyles = styled.button`
-  background: var(--green-500);
-  color: var(--white);
-  border: none;
+  background: var(--white);
+  color: var(--black);
+  border: 4px solid var(--black);
   padding: 1rem;
-  width: 90%;
+  width: 100%;
   margin: 0 auto 1rem;
   border-radius: 50px;
   cursor: pointer;
-  font-size: var(--fs-300);
+  font-size: var(--fs-400);
+  font-weight: var(--weight-300);
   text-transform: uppercase;
 
   &:disabled {
@@ -56,7 +57,7 @@ export default function AddToCart({ id }) {
         }
       }}
     >
-      Add{loading && "ing"} To Cart
+      Add{loading && "ing"} To Kart
     </AddToCartStyles>
   );
 }

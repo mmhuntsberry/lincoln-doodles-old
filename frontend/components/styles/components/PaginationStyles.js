@@ -8,12 +8,12 @@ const PaginationStyles = styled.div`
   justify-content: center;
   align-content: center;
   margin: 2rem auto;
-  border: 1px solid var(--green-500);
+  border: 1px solid var(--gray-500);
   border-radius: 10px;
   & > * {
     margin: 0;
     padding: 15px 30px;
-    border-right: 1px solid var(--green-500);
+    border-right: 1px solid var(--gray-500);
     &:last-child {
       border-right: 0;
     }

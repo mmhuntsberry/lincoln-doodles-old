@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap');
+
 :root {
 
   --black: #111218;
@@ -28,6 +30,7 @@
   --red-500: #850D0D;
   --red-600: #660000;
 
+  --font-family-primary: 'Gaegu', cursive;
 
 
   
@@ -53,8 +56,8 @@
   --lh-700: 44px;
   --lh-800: 56px;
 
-  --weight-100: 400;
-  --weight-200: 600;
+  --weight-100: 300;
+  --weight-200: 400;
   --weight-300: 700;
 
   --spacing-100: 0.25rem; /* 4px */

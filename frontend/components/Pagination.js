@@ -29,7 +29,7 @@ export default function Pagination({ page }) {
           Link Draws - Page {page} of {pageCount}
         </title>
       </Head>
-      <Link href={`/products/${page - 1}`}>
+      <Link href={`/doodles/${page - 1}`}>
         <a href="" aria-disabled={page <= 1}>
           &larr; Prev
         </a>
@@ -38,7 +38,7 @@ export default function Pagination({ page }) {
         Page {page} of {pageCount}
       </p>
       <p>{count} Items Total</p>
-      <Link href={`/products/${page + 1}`}>
+      <Link href={`/doodles/${page + 1}`}>
         <a href="" aria-disabled={page >= pageCount}>
           Next &rarr;
         </a>

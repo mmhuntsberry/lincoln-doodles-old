@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useState } from "react";
 import useForm from "../lib/useForm";
 import DisplayError from "./Error";
-import { ALL_PRODUCTS_QUERY } from "./Products";
+import { ALL_PRODUCTS_QUERY } from "./Doodles";
 import { Form } from "./styles/components/FormStyles";
 import { useRouter } from "next/router";
 
@@ -60,7 +60,7 @@ export default function CreateProduct() {
 
         // Go to product page
         router.push({
-          pathname: `/product/${res.data.createProduct.id}`,
+          pathname: `/doodle/${res.data.createProduct.id}`,
         });
       }}
     >
@@ -109,7 +109,7 @@ export default function CreateProduct() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">+ Add product</button>
+        <button type="submit">+ Add doodle</button>
       </fieldset>
     </Form>
   );

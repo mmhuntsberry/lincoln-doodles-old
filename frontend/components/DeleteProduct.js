@@ -3,10 +3,21 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 
 const ButtonStyles = styled.button`
-  border: 0;
-  background: none;
+  background: var(--white);
+  color: var(--black);
+  border: 4px solid var(--black);
+  padding: 1rem;
+  width: 90%;
+  border-radius: 50px;
   cursor: pointer;
+  font-size: var(--fs-400);
+  font-weight: var(--weight-300);
+  text-transform: uppercase;
+  text-decoration: none;
 
+  a:hover {
+    text-decoration: none;
+  }
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;

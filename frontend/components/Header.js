@@ -6,19 +6,14 @@ import Search from "./Search";
 import { LogoStyles } from "./styles/components/LogoStyles";
 
 const HeaderStyles = styled.header`
+  grid-area: header;
+
   .bar {
-    border-bottom: 10px solid var(--green-400, black);
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 32px;
     justify-content: space-between;
-    align-items: stretch;
-  }
-
-  .sub-bar {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    border-bottom: 1px solid var(--green-400, black);
+    align-items: center;
   }
 `;
 
@@ -32,7 +27,7 @@ export default function Header() {
         <Nav />
       </div>
       <div className="sub-bar">
-        <Search />
+        {/* <Search /> */}
         <Cart />
       </div>
     </HeaderStyles>

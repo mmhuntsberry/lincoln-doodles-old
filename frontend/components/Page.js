@@ -1,17 +1,12 @@
 import PropTypes from "prop-types";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
+import SideNav from "./SideNav";
 
 const GlobalStyles = createGlobalStyle`
-@font-face {
-  font-family: 'radnika_next';
-  src: url('/public/static/radnikanext-medium-webfont.woff2')
-  format('woff2')
-  font-weight: normal;
-  font-style: normal;
-}
+
   :root {
-    --maxWidth: 1000px;
+    --max-width: 1000px;
 
     box-sizing: border-box;
     *, *::before, *::after {
@@ -20,40 +15,53 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'radnika_next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font-family-primary);
     padding: 0;
     margin: 0;
     font-size: var(--fs-400);
     line-height: var(--lh-4);
+    font-weight: var(--weight-100);
   }
-
+  
   a {
     text-decoration: none;
-    color: var(--green-500);;
+    color: var(--black);
   }
 
-  a:hover {
-    text-decoration: underline;
-  }
+
 
   button {
-    font-family: 'radnika_next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font-family-primary);
   }
 `;
 
+const PageStyles = styled.div`
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  /* grid-template-rows: min-content calc(1fr - 64px); */
+  grid-template-areas:
+    "header header"
+    "sidenav content";
+`;
+
 const InnerStyles = styled.div`
-  max-width: var(--max-width);
+  grid-area: content;
+  display: grid;
+  /* max-width: var(--max-width); */
+  /* width: 90%; */
+  align-content: center;
   margin: 0 auto;
-  padding: var(--spacing-700);
+  /* padding: var(--spacing-700); */
 `;
 
 export default function Page({ children }) {
   return (
-    <div>
+    <PageStyles>
       <GlobalStyles />
       <Header />
+      <SideNav />
       <InnerStyles>{children}</InnerStyles>
-    </div>
+    </PageStyles>
   );
 }
 
