@@ -13,8 +13,8 @@ const loading = keyframes`
 `;
 
 export const Form = styled.form`
-  box-shadow: var(--shadow-200);
-  background: var(--gray-100);
+  /* box-shadow: var(--shadow-200); */
+  /* background: var(--gray-100); */
   border: var(--spacing-100);
   padding: var(--spacing-500);
   font-size: var(--fs-300);
@@ -30,24 +30,36 @@ export const Form = styled.form`
     width: 100%;
     padding: var(--spacing-200);
     font-size: var(--fs-200);
-    border: 1px solid var(--black);
+    border: none;
+    border-bottom: 1px solid var(--black);
 
     &:focus {
       outline: 0;
       border-color: var(--green-500);
     }
+
+    &::placeholder {
+      font-family: var(--font-family-primary);
+      color: var(--gray-400);
+    }
   }
 
   button,
   input[type="submit"] {
+    background: var(--white);
+    color: var(--black);
+    border: 4px solid var(--black);
+    padding: var(--spacing-200) var(--spacing-600);
+    border-radius: 50px;
     cursor: pointer;
-    width: auto;
-    background: var(--green-500);
-    color: var(--white);
-    border: 0;
-    font-size: var(--fs-500);
-    font-weight: var(--weight-200);
-    padding: var(--spacing-200) var(--spacing-500);
+    font-size: var(--fs-400);
+    font-weight: var(--weight-300);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.5s;
+    &[disabled] {
+      opacity: 0.5;
+    }
   }
 
   fieldset {

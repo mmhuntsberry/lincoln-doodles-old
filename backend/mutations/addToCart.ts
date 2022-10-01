@@ -16,7 +16,7 @@ export default async function addToCart(
   // Query the current users cart
   const allCartItems = await context.lists.CartItem.findMany({
     where: { user: { id: session.itemId }, product: { id: productId } },
-    resolveFields: "id,quantity",
+    resolveFields: "id, quantity",
   });
 
   // See if current item is in their cart
@@ -30,9 +30,7 @@ export default async function addToCart(
     // if it is increment
     return await context.lists.CartItem.updateOne({
       id: existingCartItem.id,
-      data: {
-        quantity: existingCartItem.quantity + 1,
-      },
+      data: { quantity: existingCartItem.quantity + 1 },
     });
   }
 
@@ -42,5 +40,6 @@ export default async function addToCart(
       product: { connect: { id: productId } },
       user: { connect: { id: session.itemId } },
     },
+    resolveFields: false,
   });
 }

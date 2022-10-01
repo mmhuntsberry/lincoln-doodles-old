@@ -23,7 +23,8 @@ export const ALL_PRODUCTS_QUERY = gql`
 
 const ProductsListStyle = styled.ul`
   display: grid;
-  grid-template-columns: 350px 350px 350px;
+  /* grid-template-columns: 350px 350px 350px; */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: 350px;
   grid-gap: 8px;
   padding: 0;

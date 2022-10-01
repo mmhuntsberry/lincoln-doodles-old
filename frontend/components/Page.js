@@ -47,8 +47,8 @@ const PageStyles = styled.div`
 const InnerStyles = styled.div`
   grid-area: content;
   display: grid;
-  /* max-width: var(--max-width); */
-  /* width: 90%; */
+  max-width: var(--max-width);
+  width: 90%;
   align-content: center;
   margin: 0 auto;
   /* padding: var(--spacing-700); */

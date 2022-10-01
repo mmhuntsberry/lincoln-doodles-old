@@ -8,14 +8,12 @@ export const CartItem = list({
     },
   },
   fields: {
-    // Todo: Custom label here
+    // TODO: Custom Label in here
     quantity: integer({
       defaultValue: 1,
       isRequired: true,
     }),
-    product: relationship({
-      ref: "Product",
-    }),
+    product: relationship({ ref: "Product" }),
     user: relationship({ ref: "User.cart" }),
   },
 });

@@ -22,28 +22,22 @@ export const Product = list({
     }),
     status: select({
       options: [
-        {
-          label: "Draft",
-          value: "DRAFT",
-        },
-        {
-          label: "Available",
-          value: "AVAILABLE",
-        },
-        {
-          label: "Unavailable",
-          value: "UNAVAILABLE",
-        },
+        { label: "Draft", value: "DRAFT" },
+        { label: "Available", value: "AVAILABLE" },
+        { label: "Unavailable", value: "UNAVAILABLE" },
       ],
       defaultValue: "DRAFT",
       ui: {
         displayMode: "segmented-control",
-        createView: {
-          fieldMode: "hidden",
-        },
+        createView: { fieldMode: "hidden" },
       },
     }),
     price: integer(),
-    // TODO: Photo
+    // user: relationship({
+    //   ref: "User.products",
+    //   defaultValue: ({ context }) => ({
+    //     connect: { id: context.session.itemId },
+    //   }),
+    // }),
   },
 });
