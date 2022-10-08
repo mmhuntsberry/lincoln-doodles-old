@@ -49,16 +49,7 @@ export default function CartItem({ cartItem: item }) {
         </p>
       </div>
 
-      <DeleteCartItem id={item.id}>
-        <gds-action-icon
-          icon="delete"
-          outlined="true"
-          background-level="700"
-          foreground="gray"
-          foreground-level="900"
-          size="40"
-        ></gds-action-icon>
-      </DeleteCartItem>
+      <DeleteCartItem id={item.id}></DeleteCartItem>
     </CartItemStyles>
   );
 }

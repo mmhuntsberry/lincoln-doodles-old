@@ -78,8 +78,7 @@ const OverlayStyles = styled.div`
 export default function Product({ product }) {
   useEffect(() => {
     // if (product.photo.image) return;
-
-    import("@nielsen-media/gds-icons/lib/src/index");
+    // import("@nielsen-media/gds-icons/lib/src/index");
   }, []);
 
   return (

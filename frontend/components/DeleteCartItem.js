@@ -2,18 +2,6 @@ import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
 import styled from "styled-components";
 
-const ButtonStyles = styled.button`
-  border: 0;
-  background: none;
-  cursor: pointer;
-  align-self: start;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`;
-
 const DELETE_CART_ITEM_MUTATION = gql`
   mutation DELETE_CART_ITEM_MUTATION($id: ID!) {
     deleteCartItem(id: $id) {
@@ -38,14 +26,15 @@ export default function DeleteCartItem({ id, children }) {
     }
   );
 
-  console.log({ data });
   return (
-    <ButtonStyles
-      title="Remove item from cart"
-      disabled={loading}
+    <gds-action-icon
+      icon="delete"
+      outlined="true"
+      background-level="700"
+      foreground="gray"
+      foreground-level="900"
+      size="40"
       onClick={deleteCartItem}
-    >
-      {children}
-    </ButtonStyles>
+    ></gds-action-icon>
   );
 }

@@ -5,7 +5,7 @@ import Head from "next/head";
 import DisplayError from "../components/Error";
 import formatMoney from "../lib/formatMoney";
 import CartItem from "../components/CartItem";
-import { useUser } from "../components/User";
+import { CURRENT_USER_QUERY, useUser } from "../components/User";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -15,6 +15,7 @@ const USER_ORDERS_QUERY = gql`
       id
       charge
       total
+      date
       user {
         id
       }
@@ -35,7 +36,6 @@ const USER_ORDERS_QUERY = gql`
 `;
 
 function countItemsinOrder(order) {
-  // console.log(order);
   return order.items.reduce((tally, item) => tally + item.quantity, 0);
 }
 

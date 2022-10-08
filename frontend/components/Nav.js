@@ -12,24 +12,26 @@ const Nav = () => {
   const { toggleOpen } = useCart();
 
   const router = useRouter();
+  console.log({ user });
 
-  useEffect(() => {
-    import("@nielsen-media/gds-action-icon/lib/src");
-  }, []);
+  // useEffect(() => {
+  //   import("@nielsen-media/gds-action-icon/lib/src");
+  // }, []);
 
   return (
     <NavStyles>
       {user && (
         <>
-          <gds-action-icon
+          {/* <gds-action-icon
             icon="user-circle"
             background-level="700"
             foreground="gray"
             foreground-level="900"
             size="40"
             outlined="false"
-          ></gds-action-icon>
-          <gds-action-icon
+            onClick={() => {}}
+          ></gds-action-icon> */}
+          {/* <gds-action-icon
             icon="shopping-purchase"
             onClick={toggleOpen}
             background="green"
@@ -38,7 +40,7 @@ const Nav = () => {
             foreground-level="900"
             size="40"
             outlined="false"
-          ></gds-action-icon>
+          ></gds-action-icon> */}
         </>
       )}
     </NavStyles>

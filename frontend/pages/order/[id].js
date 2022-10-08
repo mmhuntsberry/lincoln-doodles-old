@@ -14,6 +14,7 @@ const SINGLE_ORDER_QUERY = gql`
       id
       charge
       total
+      date
       user {
         id
       }
@@ -120,16 +121,16 @@ export default function SinglePageOrder() {
       <div className="order__details">
         <p>
           <span>Order#: </span>
-          <span>{order.id}</span>
+          <span style={{ fontWeight: "bold" }}>{order.id}</span>
         </p>
-        {/* <p>
-          <span>Charge:</span>
-          <span>{order.charge}</span>
-        </p> */}
+        <p>
+          <span>Date: </span>
+          <span style={{ fontWeight: "bold" }}>{order.date}</span>
+        </p>
 
         <p>
           <span>Items: </span>
-          <span>{order.items.length}</span>
+          <span style={{ fontWeight: "bold" }}>{order.items.length}</span>
         </p>
       </div>
       <ul>
@@ -146,7 +147,10 @@ export default function SinglePageOrder() {
                 <h4 className="item__name">
                   {item.name} - {formatMoney(item.price)}
                 </h4>
-                <p>Qty: {item.quantity}</p>
+                <p>
+                  Qty:{" "}
+                  <span style={{ fontWeight: "bold" }}>{item.quantity}</span>
+                </p>
                 <p>{item.description}</p>
               </div>
             </li>

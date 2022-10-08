@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import SideNav from "./SideNav";
@@ -55,6 +56,10 @@ const InnerStyles = styled.div`
 `;
 
 export default function Page({ children }) {
+  useEffect(() => {
+    import("@nielsen-media/gds-web");
+  }, []);
+
   return (
     <PageStyles>
       <GlobalStyles />

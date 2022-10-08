@@ -7,8 +7,6 @@ export const CURRENT_USER_QUERY = gql`
         id
         email
         name
-
-        # TODO: Query the cary once we have it!
         cart {
           id
           quantity
@@ -30,6 +28,8 @@ export const CURRENT_USER_QUERY = gql`
 `;
 
 export function useUser() {
-  const { data } = useQuery(CURRENT_USER_QUERY);
+  const { data } = useQuery(CURRENT_USER_QUERY, {
+    refetchQueries: [{ query: CURRENT_USER_QUERY }],
+  });
   return data?.authenticatedItem;
 }

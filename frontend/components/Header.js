@@ -26,10 +26,8 @@ export default function Header() {
         </LogoStyles>
         <Nav />
       </div>
-      <div className="sub-bar">
-        {/* <Search /> */}
-        <Cart />
-      </div>
+      <div className="sub-bar">{/* <Search /> */}</div>
+      <Cart />
     </HeaderStyles>
   );
 }
