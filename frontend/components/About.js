@@ -5,21 +5,31 @@ import Image from "next/image";
 
 const ContainerStyles = styled.div`
   display: grid;
-  grid-gap: 24px;
-  grid-template-columns: max-content 480px;
-  /* width: 100%; */
+  grid-gap: 16px;
   justify-content: center;
-  height: 100%;
-  align-items: start;
-  padding-top: 128px;
-  background: url(/sleog.png) no-repeat;
-  background-position: bottom right;
-  background-size: 400px;
+  padding: 32px 0 32px;
+
+  @media (min-width: 1024px) {
+    grid-gap: 24px;
+    grid-template-columns: max-content 480px;
+    /* width: 100%; */
+    justify-content: center;
+    height: 100%;
+    align-items: start;
+    padding-top: 128px;
+    background: url(/sleog.png) no-repeat;
+    background-position: bottom right;
+    background-size: 400px;
+  }
 `;
 
-const ImageStyles = styled(Image)`
-  position: absolute;
-  top: 0;
+const ImageStyles = styled.img`
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  @media (min-width: 768px) {
+    height: 600px;
+  }
 `;
 
 const TextStyles = styled.p`
@@ -32,7 +42,7 @@ export default function Home() {
   return (
     <>
       <ContainerStyles>
-        <Image src="/lincoln.png" width="400" height="500" />
+        <ImageStyles src="/lincoln.png" alt="Link Huntsberry" />
         <TextStyles>
           Hi I'm Lincoln! Thank you for stopping by and showing your support.
           For those of you that are not familiar with the term “Neurodiverse”,

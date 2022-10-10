@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
 import styled from "styled-components";
+import { CURRENT_USER_QUERY } from "./User";
 
 const DELETE_CART_ITEM_MUTATION = gql`
   mutation DELETE_CART_ITEM_MUTATION($id: ID!) {
@@ -23,6 +24,11 @@ export default function DeleteCartItem({ id, children }) {
         id,
       },
       update,
+      refetchQueries: [
+        {
+          query: CURRENT_USER_QUERY,
+        },
+      ],
     }
   );
 

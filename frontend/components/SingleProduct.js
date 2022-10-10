@@ -8,27 +8,38 @@ import AddToCart from "./AddToCart";
 import Link from "next/link";
 import DeleteProduct from "./DeleteProduct";
 import formatMoney from "../lib/formatMoney";
+import { useUser } from "./User";
 
 const ProductStyles = styled.div`
   display: grid;
-  grid-template-columns: 1fr 400px;
-  grid-auto-flow: column;
-  max-width: var(--max-width);
-  align-items: top;
-  grid-gap: var(--spacing-800);
+  justify-content: center;
 
   img {
     width: 100%;
-    object-fit: contain;
+    max-width: 600px;
+    min-width: 340px;
   }
 
-  h2 {
-    margin: 0;
-  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 300px));
+    grid-auto-flow: column;
+    max-width: var(--max-width);
+    align-items: top;
+    grid-gap: var(--spacing-800);
 
-  p {
-    line-height: normal;
-    margin-top: 0;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      line-height: normal;
+      margin-top: 0;
+    }
   }
 `;
 
@@ -91,7 +102,7 @@ const SINGLE_ITEM_QUERY = gql`
 
 export default function SingleProduct() {
   const { query } = useRouter();
-
+  const me = useUser();
   const { data, loading, error } = useQuery(SINGLE_ITEM_QUERY, {
     variables: { id: query.id },
   });
@@ -100,7 +111,7 @@ export default function SingleProduct() {
   if (error) return <DisplayError error={error} />;
 
   const { id, name, price, description, photo } = data?.Product;
-  console.log({ id });
+
   return (
     <ProductStyles>
       <Head>
@@ -113,20 +124,26 @@ export default function SingleProduct() {
           <ProductsPriceStyle>{formatMoney(price)}</ProductsPriceStyle>
         </DetailsHeaderStyles>
         <p>{description}</p>
-        <AddToCart id={id} />
-        <ButtonGroupStyles>
-          <Link
-            href={{
-              pathname: "/update",
-              query: {
-                id: id,
-              },
-            }}
-          >
-            <LinkStyles>Edit</LinkStyles>
-          </Link>
-          <DeleteProduct id={id}>Delete</DeleteProduct>
-        </ButtonGroupStyles>
+        {me ? (
+          <>
+            <AddToCart id={id} />
+            <ButtonGroupStyles>
+              <Link
+                href={{
+                  pathname: "/update",
+                  query: {
+                    id: id,
+                  },
+                }}
+              >
+                <LinkStyles>Edit</LinkStyles>
+              </Link>
+              <DeleteProduct id={id}>Delete</DeleteProduct>
+            </ButtonGroupStyles>
+          </>
+        ) : (
+          <AddToCart id={id} />
+        )}
       </div>
     </ProductStyles>
   );

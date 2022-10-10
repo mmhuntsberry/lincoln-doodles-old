@@ -17,6 +17,7 @@ const SINGLE_ORDER_QUERY = gql`
       date
       user {
         id
+        name
       }
       items {
         id
@@ -115,7 +116,7 @@ export default function SinglePageOrder() {
         <title>Lincoln doodle - {order.id}</title>
       </Head>
       <h2>Your order is confirmed!</h2>
-      <p>Hi, {me.name.split(" ")[0]}!</p>
+      <p>Hi, {order.user.name}!</p>
       <p>Your order has been confirmed and will be shipping soon.</p>
 
       <div className="order__details">

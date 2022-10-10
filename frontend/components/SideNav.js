@@ -10,23 +10,17 @@ import { useUser } from "./User";
 const SideNav = () => {
   let user = useUser();
   const { toggleOpen } = useCart();
-
   const router = useRouter();
-
-  // useEffect(() => {
-  //   import("@nielsen-media/gds-action-icon/lib/src");
-  // }, []);
 
   return (
     <SideNavStyles>
       <Link href="/home">Home</Link>
       <Link href="/about">About</Link>
       <Link href="/doodles">Doodles</Link>
-      {/* <Link href="/products">Products</Link> */}
       {/* {process.env.NEXT_PUBLIC_STRIPE_KEY} */}
+      {user?.role?.name === "Admin" && <Link href="/sell">Sell</Link>}
       {user && (
         <>
-          <Link href="/sell">Sell</Link>
           <Link href="/orders">Orders</Link>
           <Link href="/account">Account</Link>
           <SignOut />

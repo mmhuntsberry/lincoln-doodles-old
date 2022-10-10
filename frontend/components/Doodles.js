@@ -49,12 +49,10 @@ export default function Doodles({ page }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
   return (
-    <ul>
-      <ProductsListStyle>
-        {data.allProducts.map((d) => (
-          <Doodle key={d.id} product={d} />
-        ))}
-      </ProductsListStyle>
-    </ul>
+    <ProductsListStyle>
+      {data.allProducts.map((d) => (
+        <Doodle key={d.id} product={d} />
+      ))}
+    </ProductsListStyle>
   );
 }
